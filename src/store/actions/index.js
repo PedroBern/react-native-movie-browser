@@ -7,3 +7,10 @@ export {
   onChangeInputValue,
   addNextPage
 } from "./searchActions";
+
+export {
+  LOADING_DETAILS,
+  UPDATE_CURRENT_MOVIE,
+  FAIL_FETCH_MOVIE,
+  getMovieDetails
+} from "./movieActions";

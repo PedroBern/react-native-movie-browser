@@ -18,3 +18,16 @@ export const fetchMoviesList = async (title, page = 1) => {
   const results = await response.json();
   return processMoviesList(results);
 };
+
+const processMovie = results => {
+  results = lowercaseKeys(results);
+  results.response = JSON.parse(results.response.toLowerCase());
+  return results;
+};
+
+export const fetchMovie = async id => {
+  const url = `http://www.omdbapi.com/?i=${id}&apikey=${API_KEY}`;
+  const response = await fetch(url);
+  const results = await response.json();
+  return processMovie(results);
+};

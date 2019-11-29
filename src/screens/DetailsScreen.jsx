@@ -1,25 +1,21 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { Title, Details } from "../components/details";
+import { Image, Container } from "../components/shared";
 
-function DetailsScreen() {
+const DetailsScreen = ({ navigation }) => {
   return (
-    <View style={styles.container}>
-      <Text>This is my detail screen</Text>
-    </View>
+    <Container scroll>
+      <Image wallpaper uri={navigation.getParam("uri")} />
+      <Title>{navigation.getParam("title")}</Title>
+      <Details id={navigation.getParam("imdbID")} />
+    </Container>
   );
-}
-
-DetailsScreen.navigationOptions = {
-  title: "Details"
 };
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center"
-  }
-});
+DetailsScreen.navigationOptions = ({ navigation }) => {
+  return {
+    title: navigation.getParam("title")
+  };
+};
 
 export default DetailsScreen;

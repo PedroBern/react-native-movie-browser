@@ -1,9 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Text, View } from "react-native";
-import { Container, SearchInput, List } from "../components/search";
+import { SearchInput, List } from "../components/search";
+import { Container } from "../components/shared";
 
-const SearchScreen = ({ navigation }) => {
+const SearchScreen = () => {
   return (
     <Container>
       <List />
@@ -12,7 +13,6 @@ const SearchScreen = ({ navigation }) => {
 };
 
 SearchScreen.navigationOptions = {
-  // title: "Search"
   headerTitle: () => <SearchInput />
 };
 
